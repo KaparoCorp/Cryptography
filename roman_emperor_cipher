@@ -1,8 +1,13 @@
+''' The Roman Emperor's Cipher, commonly known as a Caesar cipher, 
+is a type of substitution cipher where each letter in the plaintext 
+is shifted by a fixed number of places down or up the alphabet
+'''
+
 def encrypt(plaintext, shift):
   encrypted_text = " "
 
   for char in plaintext:
-    if char.isalpha(): # Check if the cahracter is a letter
+    if char.isalpha(): # Check if the character is a letter
       shift_amount = shift % 26 # Ensure shift is within 0 - 26
       ascii_offset = 65 if char.isupper() else 97
       encrypted_char = chr((ord(char) - ascii_offset + shift_amount) % 26 + ascii_offset)
