@@ -1,0 +1,17 @@
+def encrypt(plaintext, shift):
+  encrypted_text = " "
+
+  for char in plaintext:
+    if char.isalpha(): # Check if the cahracter is a letter
+      shift_amount = shift % 26 # Ensure shift is within 0 - 26
+      ascii_offset = 65 if char.isupper() else 97
+      encrypted_char = chr((ord(char) - ascii_offset + shift_amount) % 26 + ascii_offset)
+      encrypted_text += encrypted_char
+    else:
+      encrypted_text += char # Non-alphabetic characters are unchanged
+  return print("Encrypted : " , encrypted_text)
+
+def decrypt(ciphertext, shift):
+  decrpyted_text = encrypt(ciphertext, -shift)
+  return  print("Decrypted : " , decrpted_text)#Decrypting is just reversing the shift
+
